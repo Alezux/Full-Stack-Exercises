@@ -1,0 +1,12 @@
+title Untitled
+
+selain->palvelin: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
+palvelin-->selain: [{"content":"SPA","date":"2021-05-20T17:07:42.263Z"}, ...]
+
+note over selain:
+selain suorittaa tapahtumankäsittelijän
+joka renderöi muistiinpanot näytölle
+end note
+
+selain->palvelin: HTTP GET https://studies.cs.helsinki.fi/exampleapp/favicon.ico
+palvelin-->selain: favicon.ico
