@@ -1,12 +1,19 @@
 # Full-Stack-Exercises
 
 PART 0: (DONE)
+
 Part 0.1 done.
+
 Part 0.2 done.
+
 Part 0.3 done.
+
 Part 0.4 done.
+
 Part 0.5 done.
+
 Part 0.6 done.
+
 
 PART 1: (UNFINISHED)
 Part 1.1 unfinished.
