@@ -1,9 +1,9 @@
 # Full-Stack-Exercises
 
-PART 0: DONE
+Part 0: Done
 
-PART 1: UNFINISHED
+Part 1: Done
 
-PART 2: UNFINISHED
+Part 2: Unfinished
 
-PART 3: UNFINISHED
+Part 3: Unfinished
