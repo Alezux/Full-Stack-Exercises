@@ -1,6 +1,6 @@
 import React from 'react'
 
-const People = ({persons, searchName, deletePerson}) => {
+const Persons = ({persons, searchName, deletePerson}) => {
     return (
         persons.length ?
         <ul style={{listStyle: 'none', padding: 0}}>
@@ -19,4 +19,4 @@ const People = ({persons, searchName, deletePerson}) => {
     )
 }
 
-export default People
+export default Persons

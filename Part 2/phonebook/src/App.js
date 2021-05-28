@@ -1,9 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react'
-import personService from './Persons'
-import Filter from './Filter'
-import PersonForm from './PersonForm'
-import People from './People'
-import Notification from './Notification'
+import personService from './services/persons'
+import Filter from './components/Filter'
+import PersonForm from './components/PersonForm'
+import Persons from './components/Persons'
+import Notification from './components/Notification'
 import './index.css'
 
 const App = () => {
@@ -11,10 +11,9 @@ const App = () => {
   const [ newName, setNewName ] = useState('')
   const [ newNumber, setNewNumber ] = useState('')
   const [ searchName, setSearchName ] = useState('')
-  const [ message, setMessage ] = useState(null)
+  const [ message, setMessage ] = useState(null);
   const [ type, setType ] = useState('')
   const focusName = useRef()
-
   const clearInput = () => {
     setNewName('')
     setNewNumber('')
@@ -23,8 +22,8 @@ const App = () => {
 
   useEffect(() => {
     personService.getAll()
-    .then(setPersons);
-  }, []);
+    .then(setPersons)
+  }, [])
 
   const addPerson = event => {
     event.preventDefault()
@@ -38,7 +37,7 @@ const App = () => {
         setMessage(`Updated ${newName}'s number`)
         setType('info')
 
-        clearInput()
+        clearInput();
       })
       .catch(error => {
         if (error.name === 'TypeError') {
@@ -57,7 +56,7 @@ const App = () => {
         setMessage(`Added ${newName}`)
         setType('info')
 
-        clearInput();
+        clearInput()
       })
       .catch(error => {
         setMessage(error.response.data.error)
@@ -89,7 +88,7 @@ const App = () => {
       />
 
       <h3>Numbers</h3>
-      <People persons={persons} searchName={searchName} deletePerson={deletePerson} />
+      <Persons persons={persons} searchName={searchName} deletePerson={deletePerson} />
     </div>
   )
 }
