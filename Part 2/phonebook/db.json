@@ -19,16 +19,6 @@
       "name": "Mary Poppendieck",
       "number": "39-23-6423122",
       "id": 4
-    },
-    {
-      "name": "Kent C. Dodds",
-      "number": "0-123465789",
-      "id": 5
-    },
-    {
-      "name": "Martin Fowler",
-      "number": "123-456-789",
-      "id": 6
     }
   ]
 }

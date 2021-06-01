@@ -1,23 +1,12 @@
-import React, { useEffect } from 'react';
+import React from 'react'
 
-const Notification = ({message, type, setMessage, setType}) => {
-    useEffect(() => {
-        if (message) {
-            const timer = setTimeout(() => {
+import '../notification.css'
 
-            }, 5000);
-            return () => clearTimeout(timer);
-        }
-    }, [message])
-
-    return (
-        message ?
-        <div className={type}>
-            {message}
-        </div>
-        :
-        null
-    )
+const Notification = ({notification}) => {
+  if ('success' in notification) {
+      return <div className={notification.success ? 'success' : 'error'}>{notification.message}</div>
+  }
+  return <div />
 }
 
 export default Notification
