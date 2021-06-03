@@ -1,18 +1,26 @@
 {
-  "name": "package",
-  "version": "1.0.0",
-  "description": "package",
+  "name": "phonebook_backend",
+  "version": "0.1.0",
+  "description": "Backend for the phonebook.",
   "main": "index.js",
-  "dependencies": {
-    "express": "^4.17.1",
-    "mongoose": "^5.12.12"
-  },
-  "devDependencies": {
-    "eslint": "^7.27.0"
-  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "watch": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint ."
   },
-  "author": "",
-  "license": "ISC"
+  "author": "Alex",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^6.0.1",
+    "nodemon": "^1.19.1"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.0.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.6.4",
+    "mongoose-unique-validator": "^2.0.3",
+    "morgan": "^1.9.1"
+  }
 }
