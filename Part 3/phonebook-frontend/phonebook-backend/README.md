@@ -1,1 +1,0 @@
-https://puhelinkirja-sovellus.herokuapp.com/
