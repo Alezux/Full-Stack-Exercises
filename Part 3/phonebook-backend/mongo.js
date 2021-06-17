@@ -9,7 +9,7 @@ if (process.argv.length < 3) {
 }
 
 const url =
-  `mongodb+srv://fullstack:${password}>@cluster0.abga0.mongodb.net/test?retryWrites=true&w=majority`
+`mongodb+srv://fullstack:${password}@cluster0.abga0.mongodb.net/phonebook?retryWrites=true&w=majority`
 
 mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true })
 
@@ -24,8 +24,8 @@ if (process.argv.length === 3 ){
     Person.find({}).then(result => {
         result.forEach(person => {
             console.log(person)
-        }).
-            mongoose.connection.close()
+        })
+        mongoose.connection.close()
     })
 }
 
@@ -35,7 +35,7 @@ if (process.argv.length > 3 ){
         number: number
     })
 
-    person.save().then(result => {
+    person.save().then(() => {
         console.log(`added ${name} number ${number} to phonebook`)
         mongoose.connection.close()
     })

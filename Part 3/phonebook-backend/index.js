@@ -5,7 +5,6 @@ const app = express()
 var morgan = require('morgan')
 const cors = require('cors')
 app.use(express.static('build'))
-const mongoose = require('mongoose')
 app.use(cors())
 app.use(express.json())
 
@@ -25,31 +24,6 @@ const requestLogger = (request, response, next) => {
 
 app.use(requestLogger)
 
-const personSchema = new mongoose.Schema({
-    content: {
-        type: String,
-        minLength: 5,
-        required: true
-    },
-    date: {
-        type: Date,
-        required: true
-    },
-    important: Boolean
-})
-
-personSchema.set('toJSON', {
-    transform: (document, returnedObject) => {
-        returnedObject.id = returnedObject._id.toString()
-        delete returnedObject._id
-        delete returnedObject.__v
-    }
-})
-
-app.get('/', (request, response) => {
-    response.send('<h1>Hello World!</h1>')
-})
-
 app.get('/api/persons', (request, response) => {
     Person.find({}).then(persons => {
         response.json(persons)
@@ -60,10 +34,9 @@ app.get('/info', (request, response) => {
     response.send(`<div><p>Phonebook has info for 4 people.</p><p>${new Date()}</p></div>`)
 })
 
-
 app.get('/api/persons/:id', (request, response, next) => {
     const id = request.params.id
-    Person.findById(request.params.id).then(person => {
+    Person.findById(id).then(person => {
         if(person){
             response.json(person)
         }
@@ -131,8 +104,12 @@ app.put('/api/persons/:id', (request, response, next) => {
 
 app.delete('/api/persons/:id', (request, response, next) => {
     Person.findByIdAndRemove(request.params.id)
-        .then(result => {
-            response.status(204).end()
+        .then(person => {
+            if (person) {
+                response.status(200).end()
+            } else {
+                response.status(404).end()
+            }
         })
         .catch(error => next(error))
 })
